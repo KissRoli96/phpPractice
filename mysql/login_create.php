@@ -1,22 +1,12 @@
+<?php include "db.php";?>
 <?php
+
 
 if(isset($_POST['submit'])) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $connection = mysqli_connect('localhost', 'root', '', "loginapp");
-    if ($connection) {
-        if ($username && $password) {
-            echo "We are connected";
-            echo "</br>";
-            echo $username . " - " . $password;
-        }else{
-            echo "this field cannot be empty";
-        }
-    } else {
-        die("Database connection failed!");
 
-    }
 
     $query = "INSERT INTO users(username,password)";
     $query .= "VALUES ('$username','$password')";
