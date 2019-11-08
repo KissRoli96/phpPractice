@@ -1,16 +1,10 @@
-<?php
+<?php include "db.php";
 
 // CRUD - READ
 
 
 
-    $connection = mysqli_connect('localhost', 'root', '', "loginapp");
-    if ($connection) {
-            echo "We are connected";
-            echo "</br>";
-    } else {
-        die("Database connection failed!");
-    }
+
 
 
 $query = "SELECT * FROM users";
