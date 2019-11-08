@@ -1,19 +1,8 @@
-<?php include "db.php";
-
-// CRUD - UPDATE
-
+<?php include "db.php";?>
+<?php include "functions.php";?>
 
 
-$query = "SELECT * FROM users";
 
-$result =  mysqli_query($connection, $query);
-
-    if(!$result){
-        die('Query FAILED' . mysqli_error());
-    }
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,11 +31,11 @@ $result =  mysqli_query($connection, $query);
             </div>
 
             <div class="form-group">
-                <select name="" id="">
+                <select name="id" id="">
+                    <?php
+                    showAllData();
+                    ?>
 
-                    <option value="">
-                        1
-                    </option>
                 </select>
             </div>
 
