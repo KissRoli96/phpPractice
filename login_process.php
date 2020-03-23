@@ -35,8 +35,7 @@ if($isValid) {
             header('Location: http://localhost/car');
         } else {
             header('Location: http://localhost/car/login.php');
-            echo "<h5>Rosszul adtad meg az adataid kerlek javitsd ki ! </h5>"
-            ;
+            echo "<h5>Rosszul adtad meg az adataid kerlek javitsd ki ! </h5>";
 
         }
     }

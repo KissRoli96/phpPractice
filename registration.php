@@ -25,16 +25,17 @@ function listOfUsers($conn){
 $allUser =listOfUsers($conn);
 
 ?>
+
 <form method="post"action="registration_process.php" >
+    <p><span class="error" c> * required field</span></p>
     <div class="form-group">
         <label for="name">Nev</label>
-
         <input type="text" class="form-control" name="name" id="name" placeholder="Nevet kerlek add meg..">
+        <br><br>
     </div>
 
     <div class="form-group">
         <label for="email">Email</label>
-
         <input type="email" name="email" class="form-control" id="email" placeholder="Add meg az emailed...">
     </div>
 
