@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="9d690348-274d-4b6a-b92f-7a8e3c140261" name="car" url="http://localhost/phpPractice">
+      <webServer id="9d690348-274d-4b6a-b92f-7a8e3c140261" name="car" url="http://localhost/phpPractice/">
         <fileTransfer host="localhost/phpPractice" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
