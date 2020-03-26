@@ -17,57 +17,40 @@ session_start();
     <div class="container">
         <div class="row">
 
-<!--            <div class="col-sm">-->
-<!--                <img src="images/bugatti_kezdolap.jpg">-->
-<!--            </div>-->
+            <div class="col-sm">
+                <img src="images/bugatti_kezdolap.jpg">
+            </div>
             <div class="col-sm">
                 <?php
-                echo("hello");
-                "<pre>";
-                $varOne = 24;
 
-                $varTwo = 33;
+                if(isset($_SESSION['email'])){
+                    echo  "<h5>Fiok Email: </h5>";
+                    echo $_SESSION['email'];
+                }else{
+                    echo "<p>Nem vagy bejelentkezve kerlek jelenkezbe </p>";
+                    echo "<a href='login.php'>bejelentkezes </a>";
+                }
 
-                $varThree = $varOne + $varTwo;
-                function testFucntion($varThree){
-                    if(!($varThree > 0 && $varThree == 57)){
-                        echo ("HIBA nem felel meg a szam");
-                    }else{
-                        echo $varThree;
-                    }
+                if(isset($_SESSION['name'])){
+                    echo  "<h5>Fiok Neve: </h5>";
+                    echo $_SESSION['name'];
 
                 }
-                var_dump($varOne);
-                var_dump(testFucntion($varThree));
-//
-//                if(isset($_SESSION['email'])){
-//                    echo  "<h5>Fiok Email: </h5>";
-//                    echo $_SESSION['email'];
-//                }else{
-//                    echo "<p>Nem vagy bejelentkezve kerlek jelenkezbe </p>";
-//                    echo "<a href='login.php'>bejelentkezes </a>";
-//                }
-//
-//                if(isset($_SESSION['name'])){
-//                    echo  "<h5>Fiok Neve: </h5>";
-//                    echo $_SESSION['name'];
-//
-//                }
-//
-//                if(isset($_SESSION['password'])){
-//                    echo  "<h5>Fiok Jelszo: </h5>";
-//                    echo $_SESSION['password'];
-//
-//                }
-//                if(isset($_SESSION['address'])){
-//                    echo  "<h5>Fiok Cime: </h5>";
-//                    echo $_SESSION['address'];
-//                }
-//                ?>
-<!--            </div>-->
-<!--            <div class="col-sm">-->
-<!--                <img src="images/bmw_kezdolap.jpg" width="1250">-->
-<!--            </div>-->
+
+                if(isset($_SESSION['password'])){
+                    echo  "<h5>Fiok Jelszo: </h5>";
+                    echo $_SESSION['password'];
+
+                }
+                if(isset($_SESSION['address'])){
+                    echo  "<h5>Fiok Cime: </h5>";
+                    echo $_SESSION['address'];
+                }
+                ?>
+            </div>
+            <div class="col-sm">
+                <img src="images/bmw_kezdolap.jpg" width="1250">
+            </div>
         </div>
     </div>
 
@@ -77,6 +60,6 @@ session_start();
 
 <?php
 
-//include "footer.php";
+include "footer.php";
 
 ?>
