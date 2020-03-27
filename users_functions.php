@@ -1,7 +1,8 @@
 <?php
 
 
-function listOfUsers($conn){
+function listOfUsers($conn)
+{
     $query = "SELECT * FROM registration";
     $select_user = mysqli_query($conn,$query);
     $allUser = [];

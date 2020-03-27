@@ -4,8 +4,8 @@ include "db.php";
 include "head.php";
 include  "navigation.php";
 
+function allCars($conn) {
 
-function allCars($conn){
     $query = "SELECT * FROM cars";
     $select_car = mysqli_query($conn,$query);
     $allCars = [];
@@ -51,9 +51,9 @@ $allCars = allCars($conn);
     </tbody>
 </table>
 <br>
+
 <?php
 include "footer.php";
 ?>
-
 
 
