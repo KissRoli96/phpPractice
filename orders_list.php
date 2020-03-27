@@ -4,7 +4,8 @@ include "db.php";
 include "head.php";
 include  "navigation.php";
 
-function orderCreate($conn){
+function orderCreate($conn)
+{
     if(isset($_POST['submit'])){
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -24,7 +25,8 @@ function orderCreate($conn){
 
 orderCreate($conn);
 
-function listOfOrders($conn){
+function listOfOrders($conn)
+{
     $query = "SELECT * FROM orders";
     $select_order = mysqli_query($conn,$query);
     $allOrder = [];
@@ -39,9 +41,10 @@ function listOfOrders($conn){
     return $allOrder;
 }
 
-$allOrder =listOfOrders($conn);
+$allOrder = listOfOrders($conn);
 
-function listCars($conn){
+function listCars($conn)
+{
     $query = "SELECT * FROM cars";
     $select_car = mysqli_query($conn,$query);
     $listCars = [];
