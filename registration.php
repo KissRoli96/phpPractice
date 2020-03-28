@@ -6,7 +6,6 @@ include  "navigation.php";
 include "users_functions.php";
 session_start();
 
-
 $allUser = listOfUsers($conn);
 
 ?>
