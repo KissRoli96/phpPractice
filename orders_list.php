@@ -6,7 +6,7 @@ include  "navigation.php";
 
 function orderCreate($conn)
 {
-    if(isset($_POST['submit'])){
+    if (isset($_POST['submit'])) {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $address = $_POST['address'];
@@ -30,7 +30,7 @@ function listOfOrders($conn)
     $query = "SELECT * FROM orders";
     $select_order = mysqli_query($conn,$query);
     $allOrder = [];
-    while($row = mysqli_fetch_assoc($select_order)) {
+    while ($row = mysqli_fetch_assoc($select_order)) {
         $allOrder[$row['id']] =[
                 'name' => $row['name'],
                 'email' => $row['email'],
@@ -48,7 +48,7 @@ function listCars($conn)
     $query = "SELECT * FROM cars";
     $select_car = mysqli_query($conn,$query);
     $listCars = [];
-    while($row = mysqli_fetch_assoc($select_car)){
+    while ($row = mysqli_fetch_assoc($select_car)) {
         $listCars[$row['id']] = [
             'brand' => $row['brand'],
             'type' => $row['type'],
@@ -110,7 +110,7 @@ foreach ($listOfCars as $key => $car) {
         <th scope="col">Rendelt Auto ID</th>
         </thead>
         <?php
-        foreach ($allOrder as $key => $row){
+        foreach ($allOrder as $key => $row) {
 
         ?>
         <tbody>

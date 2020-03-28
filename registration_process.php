@@ -18,7 +18,7 @@ $nameErr = $emailErr = $passwordErr = $addressErr = "";
             $nameErr = "Nev szuksges !";
              echo " <span class='error'>*  $nameErr;</span>";
             $isValid = false;
-            if(!preg_match("/^[a-zA-Z ]*$/",$name)){
+            if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
                 $nameErr ="Ellenorizze, hogy a nev csak betuket és szokozt tartalmaz-e! ";
             }
         }

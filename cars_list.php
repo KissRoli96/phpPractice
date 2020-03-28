@@ -4,12 +4,12 @@ include "db.php";
 include "head.php";
 include  "navigation.php";
 
-function allCars($conn) {
-
+function allCars($conn)
+{
     $query = "SELECT * FROM cars";
     $select_car = mysqli_query($conn,$query);
     $allCars = [];
-    while($row = mysqli_fetch_assoc($select_car)){
+    while ($row = mysqli_fetch_assoc($select_car)) {
         $allCars[$row['id']] = [
                 'brand' => $row['brand'],
                 'type' => $row['type'],
@@ -33,7 +33,7 @@ $allCars = allCars($conn);
     </thead>
     <tbody>
     <?php
-       foreach ($allCars as $key => $row){
+       foreach ($allCars as $key => $row) {
 
         ?>
     <tbody>

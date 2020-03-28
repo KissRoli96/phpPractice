@@ -23,26 +23,26 @@ session_start();
             <div class="col-sm">
                 <?php
 
-                if(isset($_SESSION['email'])){
+                if (isset($_SESSION['email'])) {
                     echo  "<h5>Fiok Email: </h5>";
                     echo $_SESSION['email'];
-                }else{
+                } else {
                     echo "<p>Nem vagy bejelentkezve kerlek jelenkezbe </p>";
                     echo "<a href='login.php'>bejelentkezes </a>";
                 }
 
-                if(isset($_SESSION['name'])){
+                if (isset($_SESSION['name'])) {
                     echo  "<h5>Fiok Neve: </h5>";
                     echo $_SESSION['name'];
 
                 }
 
-                if(isset($_SESSION['password'])){
+                if (isset($_SESSION['password'])) {
                     echo  "<h5>Fiok Jelszo: </h5>";
                     echo $_SESSION['password'];
 
                 }
-                if(isset($_SESSION['address'])){
+                if (isset($_SESSION['address'])) {
                     echo  "<h5>Fiok Cime: </h5>";
                     echo $_SESSION['address'];
                 }
