@@ -7,7 +7,7 @@ function listOfUsers($conn)
     $select_user = mysqli_query($conn,$query);
     $allUser = [];
     while($row = mysqli_fetch_assoc($select_user)) {
-        $allUser[$row['id']] =[
+        $allUser[$row['id']] = [
             'name' => $row['name'],
             'email' => $row['email'],
             'address' => $row['address'],

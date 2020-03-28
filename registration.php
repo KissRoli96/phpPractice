@@ -12,7 +12,7 @@ $allUser = listOfUsers($conn);
 ?>
 
 <form method="post"action="registration_process.php" >
-    <p><span class="error" c> * required field</span></p>
+<!--    <p><span class="error" c> * required field</span></p>-->
     <div class="form-group">
         <label for="name">Nev</label>
         <input type="text" class="form-control" name="name" id="name" placeholder="Nevet kerlek add meg..">
@@ -51,7 +51,7 @@ $allUser = listOfUsers($conn);
     <th scope="col">Password</th>
     </thead>
     <?php
-    foreach ($allUser as $key => $user){
+    foreach ($allUser as $key => $user) {
     ?>
     <tbody>
     <tr>
