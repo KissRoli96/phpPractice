@@ -10,7 +10,6 @@ $nameErr = $emailErr = $passwordErr = $addressErr = "";
         $email = $_POST['email'];
         $password = $_POST['password'];
         $address = $_POST['address'];
-
         $isValid = true;
 
         //validaljuk a nevet. egeszitsd ki igeny szerinti szabalyokkal
@@ -33,11 +32,11 @@ $nameErr = $emailErr = $passwordErr = $addressErr = "";
             $passwordErr = "Jelszo szukseges!";
 
         }
+
         if (empty($address)) {
             $isValid = false;
             $addressErr = "Cim szukseges";
         }
-
 
         if ($isValid) {
             $hash = crypt($password);
@@ -48,14 +47,12 @@ $nameErr = $emailErr = $passwordErr = $addressErr = "";
                 die("QUERY FAILED" . mysqli_error($conn));
             } else {
                 echo "RECORD CREATE";
-
             }
             header('Location: http://localhost/car/registration.php');
         }
         header('Location: http://localhost/car/registration.php');
     }
 
-?>
 
 
 

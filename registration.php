@@ -68,6 +68,6 @@ $allUser = listOfUsers($conn);
 
 <?php
 include "footer.php";
-?>
+
 
 

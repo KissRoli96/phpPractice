@@ -16,8 +16,6 @@ if (!isset ($email) && empty($email)) {
     $isValid = false;
 }
 
-
-
 if($isValid) {
     $query = "SELECT * FROM registration WHERE email = '$email'";
     $select_login = mysqli_query($conn, $query);

@@ -26,7 +26,7 @@ session_start();
 
 <?php
 include "footer.php";
-?>
+
 
 
 

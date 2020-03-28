@@ -15,9 +15,9 @@ function orderCreate($conn)
         $query .= "VALUES('$name','$email','$address','$cars_id')";
         $select_car = mysqli_query($conn,$query);
 
-        if(!$select_car){
+        if (!$select_car) {
             die("QUERY FAILED" . mysqli_error($conn));
-        }else{
+        } else {
             echo "RECORD CREATE";
         }
     }
@@ -61,8 +61,6 @@ function listCars($conn)
 
 $listOfCars = listCars($conn);
 
-
-
 ?>
 
 <form action="orders_list.php" method="post">
@@ -86,11 +84,12 @@ $listOfCars = listCars($conn);
     <select class="form-control" id="cars_id" name="cars_id">
     <option>--Valassz autot--</option>
 <?php
-foreach ($listOfCars as $key => $car) {
-    echo "<option value=".$key.">". $car['brand']. " " . $car['type']." ". number_format($car['price'],'0',' ',' ')." $ ". $car['consumption']."</option>";
 
-}
-            ?>
+    foreach ($listOfCars as $key => $car) {
+        echo "<option value=".$key.">". $car['brand']. " " . $car['type']." ". number_format($car['price'],'0',' ',' ')." $ ". $car['consumption']."</option>";
+
+    }
+?>
 
         </select>
         <br>
@@ -126,7 +125,8 @@ foreach ($listOfCars as $key => $car) {
         </tr>
         </tbody>
     </table>
+
 <?php
 include "footer.php";
-?>
+
 

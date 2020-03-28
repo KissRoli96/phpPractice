@@ -54,6 +54,6 @@ $allCars = allCars($conn);
 
 <?php
 include "footer.php";
-?>
+
 
 
