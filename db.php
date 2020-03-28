@@ -1,13 +1,9 @@
 <?php
 
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "car";
+$db = require_once('config.php');
 
 // Create connection
-$conn = mysqli_connect($servername,$username,$password,$database);
+$conn = mysqli_connect($db['servername'],$db['username'],$db['password'],$db['database']);
 
 // Check connection
 if (!$conn) {
