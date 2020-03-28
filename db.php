@@ -1,5 +1,6 @@
 <?php
-require_once('config.php');
+
+$conn = require_once('config.php');
 
 
 // Create connection
