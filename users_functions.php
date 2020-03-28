@@ -1,6 +1,5 @@
 <?php
 
-
 function listOfUsers($conn)
 {
     $query = "SELECT * FROM registration";
