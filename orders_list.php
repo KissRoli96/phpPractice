@@ -4,8 +4,9 @@ include "db.php";
 include "head.php";
 include  "navigation.php";
 
-function orderCreate($conn){
-    if(isset($_POST['submit'])){
+function orderCreate($conn)
+{
+    if (isset($_POST['submit'])) {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $address = $_POST['address'];
@@ -14,9 +15,9 @@ function orderCreate($conn){
         $query .= "VALUES('$name','$email','$address','$cars_id')";
         $select_car = mysqli_query($conn,$query);
 
-        if(!$select_car){
+        if (!$select_car) {
             die("QUERY FAILED" . mysqli_error($conn));
-        }else{
+        } else {
             echo "RECORD CREATE";
         }
     }
@@ -24,11 +25,12 @@ function orderCreate($conn){
 
 orderCreate($conn);
 
-function listOfOrders($conn){
+function listOfOrders($conn)
+{
     $query = "SELECT * FROM orders";
     $select_order = mysqli_query($conn,$query);
     $allOrder = [];
-    while($row = mysqli_fetch_assoc($select_order)) {
+    while ($row = mysqli_fetch_assoc($select_order)) {
         $allOrder[$row['id']] =[
                 'name' => $row['name'],
                 'email' => $row['email'],
@@ -39,13 +41,14 @@ function listOfOrders($conn){
     return $allOrder;
 }
 
-$allOrder =listOfOrders($conn);
+$allOrder = listOfOrders($conn);
 
-function listCars($conn){
+function listCars($conn)
+{
     $query = "SELECT * FROM cars";
     $select_car = mysqli_query($conn,$query);
     $listCars = [];
-    while($row = mysqli_fetch_assoc($select_car)){
+    while ($row = mysqli_fetch_assoc($select_car)) {
         $listCars[$row['id']] = [
             'brand' => $row['brand'],
             'type' => $row['type'],
@@ -57,8 +60,6 @@ function listCars($conn){
 }
 
 $listOfCars = listCars($conn);
-
-
 
 ?>
 
@@ -83,11 +84,12 @@ $listOfCars = listCars($conn);
     <select class="form-control" id="cars_id" name="cars_id">
     <option>--Valassz autot--</option>
 <?php
-foreach ($listOfCars as $key => $car) {
-    echo "<option value=".$key.">". $car['brand']. " " . $car['type']." ". number_format($car['price'],'0',' ',' ')." $ ". $car['consumption']."</option>";
 
-}
-            ?>
+    foreach ($listOfCars as $key => $car) {
+        echo "<option value=".$key.">". $car['brand']. " " . $car['type']." ". number_format($car['price'],'0',' ',' ')." $ ". $car['consumption']."</option>";
+
+    }
+?>
 
         </select>
         <br>
@@ -107,7 +109,7 @@ foreach ($listOfCars as $key => $car) {
         <th scope="col">Rendelt Auto ID</th>
         </thead>
         <?php
-        foreach ($allOrder as $key => $row){
+        foreach ($allOrder as $key => $row) {
 
         ?>
         <tbody>
@@ -123,7 +125,8 @@ foreach ($listOfCars as $key => $car) {
         </tr>
         </tbody>
     </table>
+
 <?php
 include "footer.php";
-?>
+
 

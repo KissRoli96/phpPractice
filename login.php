@@ -21,13 +21,12 @@ session_start();
     <button type="submit" name="submit" class="btn btn-primary">Bejelentkezes</button>
 </form>
 
-
 <br>
 <br>
 
 <?php
 include "footer.php";
-?>
+
 
 
 

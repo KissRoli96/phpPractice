@@ -3,31 +3,15 @@
 include "db.php";
 include "head.php";
 include  "navigation.php";
+include "users_functions.php";
 session_start();
 
-
-
-function listOfUsers($conn){
-    $query = "SELECT * FROM registration";
-    $select_user = mysqli_query($conn,$query);
-    $allUser = [];
-    while($row = mysqli_fetch_assoc($select_user)) {
-        $allUser[$row['id']] =[
-            'name' => $row['name'],
-            'email' => $row['email'],
-            'address' => $row['address'],
-            'password' => $row['password']
-        ];
-    }
-    return $allUser;
-}
-
-$allUser =listOfUsers($conn);
+$allUser = listOfUsers($conn);
 
 ?>
 
 <form method="post"action="registration_process.php" >
-    <p><span class="error" c> * required field</span></p>
+<!--    <p><span class="error" c> * required field</span></p>-->
     <div class="form-group">
         <label for="name">Nev</label>
         <input type="text" class="form-control" name="name" id="name" placeholder="Nevet kerlek add meg..">
@@ -66,7 +50,7 @@ $allUser =listOfUsers($conn);
     <th scope="col">Password</th>
     </thead>
     <?php
-    foreach ($allUser as $key => $user){
+    foreach ($allUser as $key => $user) {
     ?>
     <tbody>
     <tr>
@@ -84,6 +68,6 @@ $allUser =listOfUsers($conn);
 
 <?php
 include "footer.php";
-?>
+
 
 
