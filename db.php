@@ -1,5 +1,6 @@
 <?php
 
+
 $db = require_once('config.php');
 
 // Create connection
