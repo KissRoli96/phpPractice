@@ -23,15 +23,14 @@ function registerUser($email, $password, $name, $address)
 {
     $conn = require "db.php";
 
-    $hash = crypt($password);
+    $hash = crypt(" ",$password);
     $query = "INSERT INTO registration (name, email, address, password)";
     $query .= "VALUES('$name','$email','$address','$hash')";
 
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
-      return false;
+        return false;
     }
-
-    return true;
+        return true;
 }

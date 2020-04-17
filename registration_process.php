@@ -32,12 +32,16 @@ include  "users_functions.php";
             $isValid = false;
         }
 
+
     }
 
-    if (!registerUser($email,$password,$name,$address)) {
+    if (!registerUser($email, $password, $name, $address)) {
         $_SESSION['flash']['error'] = 'A regisztráció nem sikerült, belső hiba történt!';
         header('Location: http://localhost/phpPractice/registration.php');
     }
+        header('Location: http://localhost/phpPractice/registration.php');
+        $_SESSION['flash']['success']= 'A regisztráció sikeres';
+
 
 
 
