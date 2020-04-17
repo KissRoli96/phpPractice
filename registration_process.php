@@ -32,7 +32,19 @@ include  "users_functions.php";
             $isValid = false;
         }
 
-
+        if ($isValid) {
+            $hash = crypt($password);
+            $query = "INSERT INTO registration (name, email, address, password)";
+            $query .= "VALUES('$name','$email','$address','$hash')";
+            $select_user = mysqli_query($conn, $query);
+            if (!$select_user) {
+                die("QUERY FAILED" . mysqli_error($conn));
+            } else {
+                echo "RECORD CREATE";
+            }
+            header('Location: http://localhost/phpPractice/registration.php');
+        }
+        header('Location: http://localhost/phpPractice/registration.php');
     }
 
     if (!registerUser($email, $password, $name, $address)) {
