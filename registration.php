@@ -1,12 +1,11 @@
 <?php
 
-include "db.php";
 include "head.php";
 include  "navigation.php";
 include "users_functions.php";
 session_start();
 
-$allUser = listOfUsers($conn);
+$allUser = listOfUsers();
 
 ?>
 
