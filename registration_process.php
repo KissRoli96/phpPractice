@@ -34,29 +34,12 @@ include  "users_functions.php";
 
         if ($isValid) {
             $hash = crypt($password);
-            $query = "INSERT INTO registration (name, email, address, password)";
-            $query .= "VALUES('$name','$email','$address','$hash')";
-            $select_user = mysqli_query($conn, $query);
-            if (!$select_user) {
-                die("QUERY FAILED" . mysqli_error($conn));
-            } else {
-                echo "RECORD CREATE";
+            if (registerUser($email, $password, $name, $address)) {
+                header('Location: http://localhost/phpPractice/registration.php');
+                $_SESSION['flash']['success']= 'A regisztráció sikeres';
             }
-            header('Location: http://localhost/phpPractice/registration.php');
         }
-        header('Location: http://localhost/phpPractice/registration.php');
-    }
 
-    if (!registerUser($email, $password, $name, $address)) {
         $_SESSION['flash']['error'] = 'A regisztráció nem sikerült, belső hiba történt!';
         header('Location: http://localhost/phpPractice/registration.php');
     }
-        header('Location: http://localhost/phpPractice/registration.php');
-        $_SESSION['flash']['success']= 'A regisztráció sikeres';
-
-
-
-
-
-
-
