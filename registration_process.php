@@ -48,9 +48,9 @@ $nameErr = $emailErr = $passwordErr = $addressErr = "";
             } else {
                 echo "RECORD CREATE";
             }
-            header('Location: http://localhost/car/registration.php');
+            header('Location: http://localhost/phpPractice/registration.php');
         }
-        header('Location: http://localhost/car/registration.php');
+        header('Location: http://localhost/phpPractice/registration.php');
     }
 
 
