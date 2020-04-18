@@ -1,7 +1,7 @@
 <?php
 
 
-$db = require_once('config.php');
+$db = require('config.php');
 
 // Create connection
 $conn = mysqli_connect($db['servername'],$db['username'],$db['password'],$db['database']);
