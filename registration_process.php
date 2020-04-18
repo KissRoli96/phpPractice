@@ -1,9 +1,8 @@
 <?php
 
-include "db.php";
 session_start();
+include  "users_functions.php";
 
-$nameErr = $emailErr = $passwordErr = $addressErr = "";
     //megnezzuk, jott e post-ban amit szeretnenk
     if (isset($_POST['submit']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['address'])) {
         $name = $_POST['name'];
@@ -14,8 +13,6 @@ $nameErr = $emailErr = $passwordErr = $addressErr = "";
 
         //validaljuk a nevet. egeszitsd ki igeny szerinti szabalyokkal
         if (empty($name)) {
-            $nameErr = "Nev szuksges !";
-             echo " <span class='error'>*  $nameErr;</span>";
             $isValid = false;
             if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
                 $nameErr ="Ellenorizze, hogy a nev csak betuket és szokozt tartalmaz-e! ";
@@ -24,36 +21,25 @@ $nameErr = $emailErr = $passwordErr = $addressErr = "";
 
         if (empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $isValid = false;
-            $emailErr = "Email szukseges!";
         }
 
         if (empty($password) && (strlen($password) > 6)) {
             $isValid = false;
-            $passwordErr = "Jelszo szukseges!";
 
         }
 
         if (empty($address)) {
             $isValid = false;
-            $addressErr = "Cim szukseges";
         }
 
         if ($isValid) {
             $hash = crypt($password);
-            $query = "INSERT INTO registration (name, email, address, password)";
-            $query .= "VALUES('$name','$email','$address','$hash')";
-            $select_user = mysqli_query($conn, $query);
-            if (!$select_user) {
-                die("QUERY FAILED" . mysqli_error($conn));
-            } else {
-                echo "RECORD CREATE";
+            if (registerUser($email, $password, $name, $address)) {
+                header('Location: http://localhost/phpPractice/registration.php');
+                $_SESSION['flash']['success']= 'A regisztráció sikeres';
             }
-            header('Location: http://localhost/phpPractice/registration.php');
         }
+
+        $_SESSION['flash']['error'] = 'A regisztráció nem sikerült, belső hiba történt!';
         header('Location: http://localhost/phpPractice/registration.php');
     }
-
-
-
-
-
