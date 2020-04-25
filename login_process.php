@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "db.php";
-
+include "users_functions.php";
 
 //mi van üres? => visszaküldjük hogy adjon meg valamit.
 if (empty($_POST['email'] || $_POST['password'])) {
@@ -14,14 +14,14 @@ if (empty($_POST['email'] || $_POST['password'])) {
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$query = "SELECT * FROM registration WHERE email = '$email'";
-$select_login = mysqli_query($conn, $query);
+$row = findUserByEmail($email,$conn);
 
-if (!$select_login) {
-    die("QUERY FAILED" . mysqli_error($conn));
+if ($row == NULL) {
+    $_SESSION['flash']['error'] = "Nem letezik ilyen email!";
+    header('Location: http://localhost/phpPractice/login.php');
+    exit();
 }
 
-$row = mysqli_fetch_assoc($select_login);
 $hash = $row['password'];
 
 if (crypt($password, $hash) == $hash) {

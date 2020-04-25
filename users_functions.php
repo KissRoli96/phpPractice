@@ -19,6 +19,21 @@ function listOfUsers()
     return $allUser;
 }
 
+
+function findUserByEmail($email,$conn)
+{
+    $query = "SELECT * FROM registration WHERE email = '$email'";
+    $result = mysqli_query($conn, $query);
+    $result_query = mysqli_fetch_assoc($result);
+
+    if (!$result_query) {
+        return NULL;
+    }
+        return $result_query;
+}
+
+
+
 function registerUser($email, $password, $name, $address)
 {
     $conn = require "db.php";
