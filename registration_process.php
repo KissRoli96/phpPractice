@@ -2,20 +2,21 @@
 
 session_start();
 include  "users_functions.php";
+//megnezzuk, jott e post-ban amit szeretnenk
+if (isset($_POST['submit']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['address'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $address = $_POST['address'];
 
-    //megnezzuk, jott e post-ban amit szeretnenk
-    if (isset($_POST['submit']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['address'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $address = $_POST['address'];
+
+    function registerFormValidate($name, $email, $password, $address)
+    {
         $isValid = true;
 
-        //validaljuk a nevet. egeszitsd ki igeny szerinti szabalyokkal
         if (empty($name)) {
             $isValid = false;
-            if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-                $nameErr ="Ellenorizze, hogy a nev csak betuket és szokozt tartalmaz-e! ";
+            if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
             }
         }
 
@@ -33,13 +34,17 @@ include  "users_functions.php";
         }
 
         if ($isValid) {
-            $hash = crypt($password);
-            if (registerUser($email, $password, $name, $address)) {
-                header('Location: http://localhost/phpPractice/registration.php');
-                $_SESSION['flash']['success']= 'A regisztráció sikeres';
-            }
-        }
 
-        $_SESSION['flash']['error'] = 'A regisztráció nem sikerült, belső hiba történt!';
-        header('Location: http://localhost/phpPractice/registration.php');
+            registerUser($email, $password, $name, $address);
+            header('Location: http://localhost/phpPractice/registration.php');
+            $_SESSION['flash']['success'] = 'A regisztráció sikeres';
+            return true;
+        } else {
+            return false;
+            header('Location: http://localhost/phpPractice/registration.php');
+            $_SESSION['flash']['error'] = 'A regisztráció nem sikerült, belső hiba történt!';
+        }
     }
+
+    registerFormValidate($name, $email, $password, $address);
+}
