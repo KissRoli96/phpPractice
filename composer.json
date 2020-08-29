@@ -1,0 +1,17 @@
+{
+    "name": "roland/php-practice",
+    "license": "7",
+    "authors": [
+        {
+            "name": "KissRoland",
+            "email": "kissrolandkristof@gmail.com"
+        }
+    ],
+    "require": {} ,
+    "autoload": {
+        "psr-4": {
+            "PhpPractice\\": "src/"
+        }
+    }
+
+}
